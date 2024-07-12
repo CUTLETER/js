@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        func(1,2); // 선언적 함수는 위에서도 호출 가능함 (호이스팅)
+
+        // 선언적 함수
+        function func(a,b) { // var 생략
+            console.log('func 호출');
+
+            return a+b;  // return이 없으면 undefined 반환받음
+        }
+
+        // func(1,2);
+        // var result = func(1,2);
+        // console.log(result);
+
+        console.log('-------------------------------------');
+
+        // 함수를 변수에 저장할 수 있음
+        // func() -- 이건 함수 호출
+        // func -- 함수명, 이거를 변수에 저장시킬 수 있음
+        var a = func;
+        console.log(typeof a); // a = 함수
+        var result = a(1,2);
+        console.log(result);
+
+        console.log('-------------------------------------');
+
+        
+        // 익명함수 : 위에서 당겨쓰기 못함 (호이스팅 XXXXX)
+
+        // function compute() { // 선언적 함수
+        //  console.log('선언적 함수');
+        // }
+        // var x = compute;
+
+        // 익명 함수화
+        var compute = function() {
+            console.log('익명함수 호출');
+        }
+        compute();
+
+
+    </script>
+</body>
+</html>

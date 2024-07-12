@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS var 변수의 스코프는 function
+        // var 변수는 중복 선언 가능함 - 유연함
+        var a = 1;
+        if(true) {
+            var a = 2;
+        }
+        console.log(a); // 2
+
+        for (var i=1; i<=10; i++) {
+
+        }
+        console.log(i); // 11
+
+        // function안 일때는
+        function func() {
+            var a = 10; // 지역변수 취급
+        }
+        console.log(a); // 위에 선언한 2가 나옴
+
+    </script>
+</body>
+</html>

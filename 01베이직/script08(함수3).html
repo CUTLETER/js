@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 즉시 실행 함수
+        // 소괄호 열고
+        // ()
+        // 함수 몸체까지 집어넣고
+        // (function() {})
+        // 나 자신을 호출해야 하니 () 붙여주기
+        // (function() {})(); 최종 형태
+
+        (function(a,b) {
+            console.log('즉시 실행 함수 호출!');
+            console.log('매개변수 : ', a, b);
+
+            test01(); // 즉시 실행 함수 안에
+            test02(); // 즉시 실행 함수 안에
+
+        })('홍길동', 20); // 함수 호출문
+
+
+        // 화면 로딩에서 실행되는 프로그램 코드를 순서대로 작성함
+        function test01() { // 먼저 함수 선언 1
+            console.log('test01 실행');
+            return 'test01';
+        }
+
+        function test02() { // 먼저 함수 선언 2
+            console.log('test02 실행');
+            return 'test02';
+        }
+
+    </script>
+</body>
+</html>l

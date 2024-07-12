@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 데이터 타입과 연산자
+        var num1 = "10";
+        var num2 = '10';
+        var num3 = 10;
+
+        num2 = 3.14; // 변수값 수정
+        
+        console.log(num1+num2+num3); // 103.1410 문자열
+        console.log(num2+num3); // 13.14 숫자
+
+        var bool = true; // boolean 타입
+        var un;
+        var tag = document.querySelector("ㅁ");
+
+        console.log(bool);
+        console.log(un); // undefined - 값이 초기화되지 않았을 때
+        console.log(tag); // null - 값을 지정했지만 값이 없을 때
+
+        // 데이터 타입 확인 하는 키워드
+        console.log(typeof num1);
+        console.log(typeof num2);
+        console.log(typeof num3);
+        console.log(typeof un);
+        console.log(typeof tag);
+
+        console.log('------------------------------');
+
+        // 연산자
+        // == 문자열 0과 숫자 0 같다고 판명함 -> 단순히 값만 일치하면 true
+        // === 데이터 타입과 값이 둘다 일치해야 true
+
+        var a = "10";
+        var b = 10;
+
+        console.log(a == b); // true
+        console.log(a != b); // false
+
+        console.log(a === b); // false
+        console.log(a !== b); // true
+
+        // 동일 변수 중복으로 선언 가능함
+        var c; // undefined
+        var d = null;
+
+        console.log(c == d); // true
+        console.log(c === d); // false
+
+    </script>
+</body>
+</html>

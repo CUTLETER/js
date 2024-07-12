@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6 에 추가된 JS함수 미리보기 (화살표 함수 = 자바 람다식)
+        // var func1 = function(a,b) {
+        //     return a+b;
+        // } 이거를 화살표 함수로 쓰기 (아래)
+        var func1 = (a,b) => a+b; // 코드가 1줄인 경우는 {}와 return을 생략할 수 있음
+        
+        // var func2 = function(a,b) {
+        //     var sum = 0;
+        //     for (var i=a; i<=b; i++) {
+        //         sum += i;
+        //     }
+        //     return sum;
+        // } 이거를 화살표 함수로 쓰기 (아래)
+        var func2 = (a,b) => {
+            var sum = 0;
+            for (var i=a; i<=b; i++) {
+                sum += i;
+            }
+            return sum;
+        } // 코드가 여러 줄이면 {}와 return 그대로 쓰면 됨
+
+        // var func3 = function (a) {
+        //     console.log('매개변수 : '+a);
+        // } 이거도 화살표 함수로 (아래)
+        var func3 = a => console.log('매개변수 : '+a); // 매개변수가 1개면 () 생략할 수 있음
+
+        console.log(func1(1,2));
+        console.log(func2(1,10));
+        console.log(func3(100));
+
+        
+    </script>
+</body>
+</html>
