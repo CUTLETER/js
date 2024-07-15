@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // js는 로드 순서가 중요함
+        var load = document.getElementById("load"); // 이 당시에는 load 태그가 존재XXX
+        console.log(load); // 이 당시에는 load 태그가 존재XXX
+
+        // onload는 화면에서 단 *1개*만 쓸 수 있음
+        window.onload = function() { // 화면이 전부 로드된 이후에 실행되는 이벤트
+            var load = document.getElementById("load");
+            console.log(load);
+
+            load.onclick = function() {
+                console.log('로드 이벤트 이후에 클릭 이벤트');
+            }
+        }
+    </script>
+
+    <!--아이디는 화면에서 유일무이함-->
+    <button type="button" id="btn">기본 이벤트</button>
+    <button type="button" id="load">로드 이벤트</button>
+
+    <script>
+        // 기본 이벤트 - 엘리먼트를 우선 취득 후 이벤트를 걺
+        var btn = document.getElementById("btn");
+        // console.log(btn);
+        btn.onclick = function() {
+            console.log('기본 이벤트 동작 완료');
+        }
+    </script>
+</body>
+</html>

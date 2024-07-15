@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>인라인 이벤트</h3>
+    <button type="button" onclick="
+        // var name = '홍길동';
+        // alert(name);
+        myClick();
+    ">인라인 이벤트</button>
+
+    <script>
+        function myClick() {
+            var name = '홍홍홍';
+            alert(name);
+        }
+    </script>
+
+    <h3>인라인 이벤트 this</h3>
+    <!--여러 버튼 중 어떤 버튼을 클릭했는지 확인할 필요가 있는데, 이때 this 키워드를 활용할 수 있음-->
+
+    <button type="button" onclick="check('1')">1</button> <!--전달시킬 매개변수도 넣어봄-->
+    <button type="button" onclick="check('2')">2</button>
+
+    <button type="button" onclick="check(this)">3</button> <!--버튼 태그 자체(=나 자신)가 값으로 들어옴-->
+    <button type="button" onclick="check(this)">4</button>
+
+    <script>
+        function check(number) {
+            console.log('이벤트 실행 완료');
+            // console.log(number); // 엘리먼트
+            console.log(number.innerHTML); // 엘리먼트의 사이값을 얻음
+        }
+    </script>
+</body>
+</html>
