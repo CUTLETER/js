@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>태그 사이에 값을 넣는 것은 innerHTML = 대입할 값</h3>
+
+    <section class="wrap">
+        <h1 class="language">단어를 선택하세요.</h1>
+        <select class="my-select">
+            <option value="non">선택</option>
+            <option value="kor">안녕하세요</option>
+            <option value="eng">hello</option>
+            <option value="chn">你好</option>
+            <option value="jpn">こんにちは</option>
+        </select>
+    </section>
+
+    <script>
+        var wrap = document.querySelector(".wrap");
+        var language = wrap.querySelector(".wrap .language");
+        var mySelect = wrap.querySelector(".wrap .my-select");
+
+        mySelect.onchange = function() { // 또는 mySelect.addEventListener('change', function(){})
+            if (mySelect.value == 'kor') {
+                language.innerHTML = "한국어입니다."
+            } else if (mySelect.value == 'eng') {
+                language.innerHTML = "영어입니다."
+            } else if (mySelect.value == 'chn') {
+                language.innerHTML = "중국어입니다."
+            } else if (mySelect.value == 'jpn') {
+                language.innerHTML = "일본어입니다."
+            } else {
+                language.innerHTML = "단어를 선택하세요."
+            }
+        }
+    </script>
+
+</body>
+</html>

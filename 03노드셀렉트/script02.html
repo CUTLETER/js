@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">쿼리 셀렉터</button>
+
+    <div class="box">
+        <ul>
+            <li>홍길동</li>
+            <li>이순신</li>
+            <li>아무개</li>
+        </ul>
+    </div>
+
+    <script>
+        var btn = document.querySelector("#btn"); // css 선택자 제대로 넣어줘야 함
+        console.log(btn);
+        btn.addEventListener('click', function() {
+            // li 태그를 쿼리 셀렉터로
+            // var li = document.querySelector(".box > ul > li"); // 처음 발견되는 1개(단일 태그)만 얻음
+            // console.log(li);
+
+
+            var li = document.querySelectorAll(".box > ul > li");
+            console.log(li); // 1개 XXXX 배열 상태
+            for (var i = 0; i<li.length; i++) {
+                console.log(li[i]); // li 엘리먼트에 순처적으로 접근함
+            }
+        })
+    </script>
+</body>
+</html>

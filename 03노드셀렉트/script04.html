@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>CSS 스타일 변경하기!</h3>
+
+    <section class="wrap">
+        <select class="my-select">
+            <option value="1">봄</option>
+            <option value="2">여름</option>
+            <option value="3">가을</option>
+            <option value="4">겨울</option>
+        </select>
+
+        <img src="img/1.jpg" class="my-img" alt="프로필" width="200">
+        테두리 색상<input type="color" class="my-color">
+    </section>
+
+    <script>
+        var wrap = document.querySelector(".wrap");
+        var mySel = wrap.querySelector(".wrap .my-select");
+        var myImgs = document.querySelector(".wrap .my-img");
+        
+        mySel.onchange = function() {
+            myImgs.src = 'img/'+mySel.value+'.jpg';
+        }
+
+
+
+        // CSS 속성 변경하기
+        var color = document.querySelector(".wrap .my-color");
+        color.onchange = function() {
+            console.log(color.value); // rgb 색상 얻음 (input 태그는 value로 얻어야 함)
+            myImgs.style.border = "2px solid" + color.value;
+
+            img.style.borderColor = color.value; // 이렇게 적어줄 수도 있음
+        }
+
+    </script>
+</body>
+</html>
