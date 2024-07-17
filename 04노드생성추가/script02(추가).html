@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엘리먼트 생성</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>엘리먼트 생성과 추가</h3>
+
+    <input type="text" class="todo" placeholder="내용을 작성하세요.">
+    <button type="button" id="add">추가</button>
+
+    <ul class="list">
+
+    </ul>
+
+    <script>
+        var add = document.getElementById("add"); // 버튼
+        var todo = document.querySelector(".todo"); // 인풋
+        var list = document.querySelector(".list"); // ul
+        var count = 1; // 누적 시킬 전역 변수
+
+        add.addEventListener('click', function() { // 클릭 이벤트 걸기
+            // li 생성
+            // document.createElement("만들 태그의 이름");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+
+            a.href = "#"; // a태그의 href 속성 추가
+            // a.innerHTML = '사용자가 입력한 값'
+            a.innerHTML = count + "." + todo.value;
+
+            li.appendChild(a); // li 자식으로 a를 추가함
+            list.appendChild(li); // ul 자식으로 li 추가함
+
+            console.log(a);
+            console.log(li);
+
+            count++; // 카운트값 증가
+            todo.value=""; // 사용자가 적은 값 초기화
+
+
+        })
+    </script>
+</body>
+</html>
