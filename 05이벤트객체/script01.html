@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="box">
+        <li>1. 갈비찜</li>
+        <li>2. 고로케</li>
+        <li>3. 스파게티</li>
+        <li>4. 오이냉국</li>
+        <li>5. 애호박무침</li>
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        // 모든 li를 얻어오기
+        var lis = document.querySelectorAll(".box > li"); // 배열
+        var result = document.querySelector(".result");
+        console.log(lis);
+
+        // 단점 : 만약 태그가 1000개라면 반복을 1000까지 돌려야 함! 그래서 좋은 코드는 아님
+        for (var i=0; i<lis.length; i++) {
+            // lis[i] = li 태그
+            lis[i].onclick = function(e) { // 이벤트 객체를 위해 매개변수 e 넣어줌
+                // result.innerHTML = lis[i].innerHTML; 얘는 안됨
+                result.innerHTML = this.innerHTML; 
+
+                result.innerHTML = e.target.innerHTML; // 위 아래 결과는 똑같음, 아래는 이벤트 객체를 이용한 것
+            }
+        }
+    </script>
+</body>
+</html>

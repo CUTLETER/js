@@ -19,8 +19,111 @@
     -->
 
     <div>
-        <input type="text" placeholder="이름을 입력하세요."><bu 
-        <input type="text" placeholder="할일을 입력하세요.">
+        <div class="nameForm">
+            <h3 class="title"></h3>
+            <input type="text" placeholder="이름을 입력하세요">
+            <button type="button">확인</button>
+        </div>
+        
+        <div class="todoForm">
+            <input type="text" placeholder="당신의 할 일을 적으세요">
+            <button type="button">확인</button>
+        </div>
     </div>
+
+    <ul class="todoList">
+
+    </ul>
+
+    <script>
+        var nameForm = document.querySelector(".nameForm");
+        var title = nameForm.querySelector(".title");
+        var nameInput = nameForm.querySelector("input");
+        var nameButton = nameForm.querySelector("button");
+
+        var todoForm = document.querySelector(".todoForm");
+        var todoInput = todoForm.querySelector("input");
+        var todoButton = todoForm.querySelector("button");
+
+        var todoList = document.querySelector(".todoList");
+
+        nameButton.onclick = function() {
+            // nameInput.value 사용자가 입력한 값
+            title.innerHTML = nameInput.value + '님 안녕하세요.';
+            nameInput.style.display = 'none';
+            nameButton.style.display = 'none';
+        }
+
+        todoButton.onclick = function() {
+            var value = todoInput.value; // 사용자가 입력한 값
+            todoInput.value = "";
+
+            var li = document.createElement("li"); // li 생성
+            li.innerHTML = value;
+
+            var upBtn = document.createElement("button"); // 버튼 생성
+            upBtn.type = "button"; // 속성 지정
+            upBtn.innerHTML = '↑';
+            upBtn.onclick = upTodo;
+            li.appendChild(upBtn);
+
+            // upBtn.innerHTML = 'onclike = 어쩌고' 방법 1
+            // 또는 upBtn.onclick = function() {} 어쩌고 방법2
+
+            
+            var downBtn = document.createElement("button"); // 버튼 생성
+            downBtn.type = "button"; // 속성 지정
+            downBtn.innerHTML = '↓';
+            downBtn.addEventListener('click', downTodo); // downBtn.onclick = downTodo; 대신 이런 식으로 넣어도 됨
+            li.appendChild(downBtn);
+            
+            todoList.appendChild(li);
+
+            var deleteBtn = document.createElement("button");
+            deleteBtn.type = "button";
+            deleteBtn.innerHTML = 'X';
+            deleteBtn.addEventListener('click', deleteTodo);
+            li.appendChild(deleteBtn);
+        }
+        
+    function upTodo() { // 방법 3 함수 만들기
+        // 먼저 클릭이 일어난 당사자를 알아야 함
+        console.log(this); // this 쓸 거면 항상 개발자 도구로 값을 확인해야 함
+        var current = this.parentElement;
+        var prev = current.previousElementSibling; // 대신 이전 행이 없으면 맨뒤로 보냄
+
+        if (prev == null) { // 이전 행이 없으면 종료
+            return;
+        }
+        if(confirm('이동하시겠습니까?')) {
+        todoList.insertBefore(current, prev);
+        }
+    }
+
+    function downTodo() {
+        var current = this.parentElement;
+        var next = current.nextElementSibling;
+
+        if (next == null) {
+            return;
+        }
+
+        if(confirm('이동하시겠습니까?')) {
+            todoList.insertBefore(next, current);
+        }
+    }
+
+    function deleteTodo() {
+        console.log(this);
+        // this.parentElement.remove();
+        var current = this.parentElement;
+        todoList.removeChild(current);
+    }
+
+
+
+    </script>
+
+
 </body>
 </html>

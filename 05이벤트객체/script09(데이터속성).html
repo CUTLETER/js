@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>데이터 속성 data-</h3>
+
+    <!-- <a href="#" data-데이터명="값"></a> -->
+     <ul class="nameList">
+        <li><a href="#" data-info="20" data-address="경기도" data-user='{"id":"abc123", "age":"20"}'>홍길동</a></li>
+        <li><a href="#" data-info="30" data-address="남양주시" data-user='{"id":"abbc123", "age":"200"}'>길동홍</a></li>
+        <li><a href="#" data-info="40" data-address="호평동" data-user='{"id":"abcc123", "age":"210"}'>홍동동</a></li>
+        <li><a href="#" data-info="99" data-address="호평동" data-user='{"id":"aabc123", "age":"260"}'>동홍길</a></li>
+     </ul>
+
+     <script>
+        var nameList = document.querySelector(".nameList");
+        nameList.addEventListener('click', function() {
+            event.preventDefault(); // 고유 이벤트 중단
+            if (event.target.tagName != ("A")) return; // A 태그 아니면 중단
+            // console.dir(event.target);
+
+            // dataset 데이터 저장소
+            console.log(event.target.dataset.info); // data-info에 저장되는 값
+            console.log(event.target.dataset.address);
+            console.log(event.target.dataset.user);
+            
+            var obj = JSON.parse(event.target.dataset.user);
+            console.log(obj);
+        })
+     </script>
+</body>
+</html>

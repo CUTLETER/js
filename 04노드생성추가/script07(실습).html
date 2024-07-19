@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0; border-collapse: collapse;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button button="type" id="del">일괄 삭제</button>
+    <table >
+        <thead>
+            <th><input type="checkbox" class="allCheck"></th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </thead>
+
+        <tbody class="table">
+        <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>1</td>
+            <td>홍길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>2</td>
+            <td>김길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>3</td>
+            <td>이길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>4</td>
+            <td>고길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+
+    <script>
+        var del = document.getElementById("del");
+        var list = document.querySelectorAll(".check"); // 리스트 = 배열
+        var allCheck = document.querySelector(".allCheck"); // 전체 체크박스
+        del.onclick = function() {
+            for (var i=0; i<list.length; i++) {
+                console.log(list[i]);
+                console.log(list[i].checked); // 체크 되어 있으면 true
+                if (list[i].checked) {
+                    // list[i].remove(); 이러면 체크박스만 달랑 삭제됨
+                    list[i].parentElement.parentElement.remove();
+                } 
+            }
+        }
+        allCheck.onclick = function() {
+            
+            if (allCheck.checked) { // allCheck에 체크되는 순간에
+                for (var i=0; i<list.length; i++) {
+                    list[i].checked = true;
+                }
+            } else {
+                for (var i=0; i<list.length; i++) {
+                    list[i].checked = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

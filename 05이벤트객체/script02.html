@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="box">
+        <li>1. 갈비찜</li>
+        <li>2. 고로케</li>
+        <li>3. 스파게티</li>
+        <li>4. 오이냉국</li>
+        <li>5. 애호박무침</li>
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        // 부모 태그에 이벤트를 걸면 자식한테도 이벤트가 위임됨
+        var box = document.querySelector(".box"); // li 의 부모님인 box
+        var result = document.querySelector(".result");
+        box.onclick = function() {
+            // console.log('이벤트 동작됨');
+            // console.log(event); 이벤트에 대한 정보가 들어 있음
+
+            // ************************************************
+            // console.log(event.target); // 이벤트가 동작한 태그를 알 수 있음 (ul 에서 이벤트 동작시키면 ul 태그 나옴)
+            // console.log(event.currentTarget); // 실제 이벤트가 걸려 있는 태그!
+
+            if (event.target.tagName=='UL') return; // 이벤트가 걸려 있는 태그가 ul 이면 종료
+            result.innerHTML = event.target.innerHTML; // 함수 매개변수로 e 넣으면 e. 아니면 event.
+        }
+    </script>
+</body>
+</html>
