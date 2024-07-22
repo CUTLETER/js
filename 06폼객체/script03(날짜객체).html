@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date = new Date(); // 오늘 날짜 Mon Jul 22 2024 09:39:41 GMT+0900 (한국 표준시)
+        console.log(date);
+        
+        var date2 = new Date('2024-07-22 09:40:59');
+        console.log(date2);
+
+        var date3 = new Date(2024,7,22,9,41,43);
+        console.log(date3);
+
+        var date4 = date.getTime(); // 1970년 1월 1일 기준으로 여태까지의 시간을 밀리 초로 나타냄
+        console.log(date4);
+
+        var date5 = new Date(date4); // 밀리 초를 알아보기 쉬운 기본 형태로 바꿈
+        console.log(date5);
+
+        console.log('-------------------------------------');
+
+        // 날짜의 포맷 형식 변환 함수
+        console.log(date.toUTCString()); // 사람이 읽기 쉬운 형태의 UTC(협정 세계 시) 기반 날짜 문자열을 반환
+        console.log(date.toLocaleDateString());
+        console.log(date.toLocaleTimeString()); // 국가별 지역 시간을 나타냄 (오전 오후는 해당 국가의 언어로)
+        console.log(date.toISOString()); //  ISO 8601 형식의 UTC 기반 날짜 문자열을 반환
+
+        console.log('-------------------------------------');
+
+        console.log(date.getFullYear()); // 년도
+        console.log(date.getMonth()+1); // 월은 +1 해야 하는 경우 많으니 확인할 것
+        console.log(date.getDate()); // 일
+        console.log(date.getHours()); // 시
+        console.log(date.getMinutes()); // 분
+        console.log(date.getSeconds()); // 초
+
+        console.log('-------------------------------------');
+
+        // 시간 계산
+        var millisecond = 1721610999127;
+        var now = new Date().getTime();
+        console.log((now-millisecond)/1000); // 몇 초 지났는지
+        console.log((now-millisecond)/1000/60); // 몇 분 지났는지
+        console.log((now-millisecond)/1000/60/60); // 몇 시간 지났는지
+
+
+
+
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>폼객체</title>
 </head>
 <body>
     <form action="list.board" name="myForm">
@@ -33,7 +33,24 @@
                 alert ("이름은 4글자 이상입니다.");
                 myForm.name.focus(); // 인풋태그에 포커싱 효과                                             
                 return // 함수 종료 필수
+            } else {
+                // console.log(myForm.info);
+                var arr = myForm.info;
+                var count = 0;
+                for (var i=0; i<arr.length; i++) {
+                    if (arr[i].checked) {
+                        count++;
+                    }
+                }
+
+                if (count == 0) {
+                    alert('택1 필수!');
+                    return;
+                }
             }
+
+            // 폼 서브밋 js
+            myForm.submit(); // 폼을 원하는 곳(list.board)으로 전송시킴 
 
         }
     </script>

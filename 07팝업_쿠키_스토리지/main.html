@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>메인 화면</h3>
+
+    <!--
+    오늘 하루 이 창을 열지 않기로 창을 종료하는 경우에 개발자가 식별할 수 있는 쿠키 생성함
+    메인 창에서는 해당 쿠기가 있다면 팝업을 열지 않으면 됨
+    -->
+
+    <script>
+        // 새 창 window.open()
+        // 창 닫기 window.close()
+
+        window.onload = function() {
+            // window.open('https://www.dataq.or.kr/'); 새 창 열림
+            // window.open('popup.html');
+            if(findCookie('mainPopup')==false) {
+                window.open('popup.html','타이틀', 'width=300, height=300, top=100, left=100'); // 속성은 한 따옴표 안에 전부 넣어야 함
+            } 
+
+             
+        }
+
+        function findCookie(name) {
+            var cookies = document.cookie;
+            var arr = cookies.split(", ");
+            for (var i in arr) {
+                if (arr[i].indexOf(name+"=")!= -1) {
+                    return true;
+                } 
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
