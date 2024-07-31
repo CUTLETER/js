@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 제이쿼리 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <input type="text" name="name" id="apple" value="홍길동">
+
+    <input type="text" class="melon">
+
+    <script>
+        // js 코드로 value 값 얻으려면?
+        var apple = document.getElementById("apple");
+        console.log(apple);
+        console.log(apple.value);
+
+        // 제이쿼리로는?
+        // $("선택자").함수
+        // 선택자 문법을 쓰면 init을 반환 받는데 그 속의 모든 함수 다 쓸 수 있게 됨
+        // $("선택자")[0]으로 순수 엘리먼트 얻을 수 있음
+        var a = $("#apple");
+        console.log(a);
+
+        // 값 얻기
+        var b = $("#apple").val();
+        console.log(b);
+
+        // 값 추가하기
+        $(".melon").val("값을 추가해봄");
+    </script>
+</body>
+</html>

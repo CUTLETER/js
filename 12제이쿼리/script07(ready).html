@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        // js
+        // window.onload = function() { // 1번만 쓸 수 있음
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick = function() {
+        //         console.log('js로 처리하기');
+        //     }
+        // }
+
+
+        $(document).ready(function() { // ready 안에 실행시키고 싶은 함수 넣기
+            $("#btn").click(function() {
+                console.log('제이쿼리로 처리하기');
+            })
+
+            console.log("ready 실행됨1");
+        });
+
+        $(document).ready(function() { 
+            console.log('ready 실행됨2');
+        });
+
+    </script>
+
+    <button type="button" id="btn">이벤트 등록</button>
+</body>
+</html>

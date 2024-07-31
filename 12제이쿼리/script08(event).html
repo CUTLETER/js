@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <select id="sel">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <input type="text" name="name">
+
+    <div class="box" style="width: 100px; height: 300px; border: 3px solid orangered;">
+
+    </div>
+
+    <script>
+        // console.log($("#sel"));
+
+        $("#sel").change(function() {
+            console.log('change 이벤트');
+        })
+
+        $("input[name=name]").keyup(function() { // input 태그의 name이 name인 것
+            console.log('keyup 이벤트');
+        })
+
+        $(".box").mouseenter(function() {
+            console.log('mouseenter 이벤트');
+        })
+
+        $(".box").mouseout(function() {
+            console.log('mouseout 이벤트');
+            $(".box").css("backgroundColor", "black");
+        })
+    </script>
+</body>
+</html>

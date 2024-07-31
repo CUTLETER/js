@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .movieList {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .movieList > .movie {
+            flex-basis: 25%;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            margin: 10px;
+        }
+
+        .movie > img {
+            width: 200px;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    https://yts.mx/api
+
+    <button type="button" onclick="ajax()">데이터 불러오기</button>
+
+    <div class="movieList"> <!--// 이걸 이제 console 말고 화면(브라우저)에 띄울 예정 2-->
+        <!-- 
+        <div class="movie">
+            <img src="#" alt="제목">
+            <div class="inner">
+                <p>제목</p>
+                <p>내용</p>
+            </div>
+        </div>
+        -->
+    </div>
+
+    <div class="pagination">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">8</a>
+        <a href="#">9</a>
+        <a href="#">10</a>
+    </div>
+
+    <div class="overlay">
+        로딩 중
+    </div>
+
+    <script>
+        var movieList = document.querySelector(".movieList");  // 이걸 이제 console 말고 화면(브라우저)에 띄울 예정 4
+        var page = 1;
+
+        var overlay = document.querySelector(".overlay");
+
+        function ajax() {
+            overlay.style.display = "block"; // overlay 활성화
+
+
+            fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating&genre=Action&page="+page).then(function(response) { // ?쓰고 sort_by=rating" 키=값 (get 방식으로)! 매개변수 여러 개 쓸 거면 &로 이어쓰기
+                return response.json();
+                })
+                .then(function(obj) {
+                    // console.log(obj);
+
+                    // 필요한 데이터만 뽑아내기
+                    var data = obj.data.movies // 또는
+                    var data = obj["data"]["movies"]
+
+
+                    var str = "";
+
+
+                    console.log(data);
+                    for(var i=0; i<data.length; i++) {
+                        var img = data[i].medium_cover_image;
+                        var title = data[i].title;
+                        var summary = data[i].summary;
+                        // console.log(img, title, summary);
+
+
+                        // 이걸 이제 console 말고 화면(브라우저)에 띄울 예정 3
+                        str += '<div class="movie">';
+                            str += '<img src="'+ img +'" alt="'+ title +'">';
+                            str += '<div class="inner">';
+                                str += '<p>'+ title +'</p>';
+                                str += '<p>'+ summary +'</p>';
+                            str += '</div>';
+                        str += '</div>';
+                    }
+
+                    movieList.innerHTML = str;  // 이걸 이제 console 말고 화면(브라우저)에 띄울 예정 5
+                    overlay.style.display = "none";
+
+                })
+            } // 이걸 이제 console 말고 화면(브라우저)에 띄울 예정 1
+
+        // pagination 이벤트 - 부모님한테 걸면 자식에게도 이벤트 걸림    
+        var pagination = document.querySelector(".pagination");
+        pagination.addEventListener('click', function() {
+            event.preventDefault(); // a 고유 이벤트 없애기
+            if (event.target.tagName != "A") return; // a 가 아니라면 이벤트 종료
+            page = event.target.innerHTML; // 멤버 변수 page에 저장
+            ajax();
+        })
+    </script>
+</body>
+</html>

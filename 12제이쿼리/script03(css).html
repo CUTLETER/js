@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <ul class="test1">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+
+    <script>
+        // js 방식으로 li 태그 style 전부 변경하려면?
+        // var arr = document.querySelectorAll(".test1 > li");
+
+        // for (var i=0; i<arr.length; i++) {
+        //     arr[i].style.backgroundColor = "red";
+        // }
+
+
+        // 제이 쿼리 방식
+        // css 변경 - 단일이건 다중이건 상관없이 한번에 모두 바꿔줌
+        // init 안에서 배열 돌려서 한꺼번에 다 바꿔주는 방식
+        $(".test1 > li").css("backgroundColor", "red");
+
+        // css 값 얻기
+        var color = $(".test1 > li").css("backgroundColor");
+        console.log(color);
+
+        // css 한꺼번에 변경하기
+        $(".box").css({
+            "backgroundColor" : "green",
+            "width" : "100",
+            "height" : "300",
+            "border" : "3px solid orange",
+            "display" : "inline-block"
+        })
+    </script> 
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fetch("hello.txt")
+        // .then(function(response) {
+        //     response.text().then(function(data) {
+        //         console.log(data);
+        //     })
+        // })
+
+        // fetch("요청 url") fetch api의 기본 형태
+        // fetch("hello.txt") hello.txt 보여달라는 요청
+        var promise = fetch("hello.txt") // fetch api는 실행 결과를 promise 객체로 반환함
+        console.log(promise);
+        /*
+        promise는 3가지 상태로 실행 결과를 반환함
+        1. fullfiled - 성공적인 수행
+        2. pending - 대기 중(수행 중)
+        3. reject - 거절(실패)
+        
+        promise 객체 안에는
+        then(콜백) 함수가 있는데
+        실행 결과를 then(콜백) 함수로 전달시킴
+        promise.then(콜백)
+
+        콜백 -> 실행 결과 띄우는데 얼마나 걸릴지 모르니 call 했을 때 결과를 back 받을 함수 (실행 결과 받는 동안 아무것도 못 보고 기다리기만 해야 하니까 비동기적인 콜백 함수가 필요함)
+        */
+        // promise.then(function() {}) // 첫번째 매개변수에는 응답 response 객체가 들어감 (아래의 형태처럼)
+        // promise.then(function(response) {
+        // console.log(response);
+        // })
+        // function(response) {
+        //     console.log(response);
+        // } 콜백
+
+        // console.log(1);
+        // fetch("hello.txt").then(function(response) {
+        // console.log(response);
+        // console.log(2);
+        // }) 
+        // console.log(3);
+        // // 실행 결과 1 - 3 - 2 순
+        // // 동기적으로 1 - 3 실행하고 비동기적인 콜백(2)은 실행 순서를 매번 보장할 수 없음
+        
+        // fetch("hello.txt").then(function(response) {
+        //     // console.log(response);
+        //     // response의 status가 200 이면 성공을 의미함
+        //     // 만약 에러가 발생한다면 200 대신 해당 에러를 가리키는 숫자가 들어감
+        //     if (response.status != 200) {
+        //         console.log('요청에 실패했습니다.');
+        //         return;
+        //     }
+
+        // // response에서 데이터를 꺼내는 법
+        // // response.text() - text 함수는 문자열의 형태로 데이터를 꺼내고 promise 객체를 반환함
+        // // 그래서 response.text().then() 으로 바로 이어나갈 수 있음 
+        //    response.text().then(function(data){
+        //     console.log(data);
+        //    })
+        // })        
+
+        // json 타입을 받는 경우
+        // fetch("hello.json").then(function(response) {
+        //     response.json().then(function(data) { // json은 json() 함수로 데이터를 꺼내면 됨
+        //         console.log(data);
+        //     }) 
+        // })
+
+        fetch("hello.json").then(function(response) {
+            return response.json(); // return으로 promise 객체 반환시키면 밖에서 다시 then을 이어쓸 수 있음
+        })
+        .then(function(data) {
+            return data;
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+        .catch(function(e) { // 마지막엔 catch 붙여도 되고 아니어도 됨
+            console.log(e);
+        })
+
+       
+
+
+        
+
+    </script>
+</body>
+</html>

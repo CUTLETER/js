@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <table class="xxx">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>버튼</th>
+            <th>테스트</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>
+                <button type="button" class="btn">버튼</button>
+            </td>
+            <td>
+                <span><i class="test">테스트1</i></span>
+                <span >테스트2</span>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>이순신</td>
+            <td>
+                <button type="button" class="btn">버튼</button>
+            </td>
+            <td>
+                <span><i class="test">테스트1</i></span>
+                <span >테스트2</span>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // closest - 가장 가까이 있는 단일 부모 찾아줌
+        // prev - previousElementSibling - 이전 형제
+        // next - nextElementSibling - 다음 형제
+        // parent - parentElement - 한 단계 위 부모
+        // children - children  - 모든 자식
+        // first - firstElementChild - 그 요소 중 첫째
+        // last - lastElementChild - 그 요소 중 마지막
+        // siblings - 모든 형제, 이웃
+        // find - 자식 중에서 특정 태그를 찾아줌
+
+
+
+        // 제이쿼리 - 단일이건 다중이건 전부 이벤트 걸어줌
+        $(".btn").click(function() {
+            console.log("딸까가각");
+            // 클릭한 대상 event.target 또는 this
+
+
+            // closest
+            // console.log($(event.target).closest("td")); // init 반환 - 다시 제이쿼리 이어서 쓸 수 있게 됨
+            // console.log($(event.target).closest("tr"));
+            // console.log($(event.target).closest(".xxx"));
+
+            // 나랑 가장 가까운 td의 이전 형제
+            // console.log($(event.target).closest("td").prev());
+
+            // 나랑 가장 가까운 td의 다음 형제
+            // console.log($(event.target).closest("td").next());
+            
+            // 나랑 가장 가까운 td의 모든 형제
+            // console.log($(event.target).closest("td").siblings());
+
+
+           // console.log($(event.target).closest("tr").children().first()); // tr의 자식인 td 중 첫째 td
+           // console.log($(event.target).closest("tr").children().last()); // tr의 자식인 td 중 막내 td
+
+            
+            
+            // 버튼을 클릭할 때 클래스명이 .test인 걸 찾아내야 함
+            // find 함수를 쓰면 간단해짐
+            console.log($(event.target).parent().next().children().first().children().first());
+            console.log($(event.target).closest("tr").find(".test"));
+        
+        })
+    </script>
+</body>
+</html>

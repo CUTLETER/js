@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="btn" class="btn btn-default">클래스 조작 테스트</button>
+
+    <script>
+        // var btn = document.getElementById("btn");
+        // btn.classList.add("클래스추가");
+        // btn.classList.remove("클래스삭제");
+
+
+        $("#btn").addClass("myBtn");
+        $("#btn").removeClass("btn");
+
+        // 클래스명에 btn이 포함되어 있으면 true 없으면 false
+        console.log($("#btn").hasClass("btn"));
+    </script>
+
+    
+    <h3>토글</h3>
+    <button type="button" id="toggle" class="dark">토글 버튼</button>
+
+    <script>
+        $("#toggle").click(function() {
+            console.log('딸깍ㄱ깍ㄲ');
+
+            console.log(this); // 이벤트가 적용된 나 자신
+            console.log(event.target); // 이벤트 발생시킨 타겟
+
+            $("#toggle")
+            $(this)
+            $(event.target)
+            // 세 가지로 쓸 수 있음
+
+            $(event.target).toggleClass("dark");
+
+        })
+    </script>
+
+    <hr>
+
+
+    <button type="button" id="test" class="test aaa">버튼</button>
+
+    <script>
+        // test 버튼에 aaa 클래스가 있다면 body 태그 배경색을 black
+        // test 버튼에 aaa가 없다면 white
+        // hasClass, addClass, removeClass 사용하면 됨
+
+        $("#test").click(function() {
+            if ($("#test").hasClass("aaa")) {
+                $("body").css("backgroundColor", "darkblue");
+            } else {
+                $("body").css("backgroundColor", "green")
+            }
+            $(this).toggleClass("aaa");
+            console.log(this);
+        })
+    </script>
+</body>
+</html>
