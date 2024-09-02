@@ -9,29 +9,29 @@
     
     <script>
         
-        // var a = 10;
-        // if(true) {
-        //     var a = 100; //var스코프는 function
-        // }
-        // console.log(a); //100
+        //var a = 10;
+        //if(true) {
+        //    var a = 100; //var 스코프(=유효 범위)는 function
+        //}
+        //console.log(a); //100
 
         let a = 10;
         if(true) {
-            let a = 100; //let스코프는 중괄호
+            let a = 100; //let 스코프(=유효 범위)는 중괄호
         }
         console.log(a); //10
         //let a = 10; //중복변수 선언 x
 
         
         const GENDER = "man"; //상수
-        //GENDER = "woman"; //err
+        // GENDER = "woman"; // 상수라 변경 불가
 
 
-        //const키워드는 객체나, 배열에서는 내부값에 변경은 됩니다.
+        //const키워드는 객체나, 배열에서'는' 내부 값에 변경 가능함
         const arr = ["a", "b", "c"];
-        //arr = ["a"]; //err
-        arr[0] = "홍길동"; //ok
-        arr[1] = "이순신"; //ok
+        // arr = ["a"]; // 상수라 변경 불가
+        arr[0] = "바뀐 값1"; // 그 안에 있는 내부 값은 변경 가능
+        arr[1] = "바뀐 값2"; // 마찬가지
         console.log(arr);
 
     </script>
@@ -53,8 +53,6 @@
                 console.log(i);
             })
         }
-        //var = i는 5로 전역변수 취급...
-
     </script>
 
 

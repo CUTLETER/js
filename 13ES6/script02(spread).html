@@ -45,20 +45,23 @@
             return [x, ...arr]
         }
 
-        console.log( sum3(1,2,3,4,5,6) );
-        console.log( sum3(1,2,3,4) );
-        console.log( sum3(1) );
-        console.log( sum3( ...[1,2,3] ) )
+        console.log('아래부터는 sum3');
+        
+        console.log( sum3(1,2,3,4,5,6) ); // 1+2+3
+        console.log( sum3(1,2,3,4) ); // 1+2+3
+        console.log( sum3(1) ); // 1+10+20
+        console.log( sum3( ...[1,2,3] ) )// 1+2+3
         
         //함수의 default매개값
-        function sum3(x, y = 10, z = 20) {
+        function sum3(x, y = 10, z = 20) { // x는 필수값이며 y,z는 값이 없을 때를 대비하여 기본값 셋팅
             return x + y + z;
         }
-
-        console.log(sum3(1) );  //31
-        console.log(sum3(1, 2) ); //23
-        console.log(sum3(1, 2, 3) ); //6
-        console.log(sum3(1, ...[1,2,3] )); //4
+        console.log('--------------');
+        
+        console.log(sum3(1) );  //1+10+20
+        console.log(sum3(1, 2) ); //1+2+20
+        console.log(sum3(1, 2, 3) ); //1+2+3
+        console.log(sum3(1, ...[1,2,3] )); //1+1+2
         
 
 

@@ -15,16 +15,16 @@
                 "title" : "hello",
                 "info" : ["apple", "banana"],
                 "profile" : {birth: "2020", img: "abc.png"}
-            },
+            }, // 첫번째 객체
             {
                 "num" : 2,
                 "title" : "bye",
                 "info" : ["melon", "orange"],
                 "profile" : {birth: "2024", img: "abcddddd.png"}
-            },
+            },// 두번째 객체
         ]
 
-        //두번째 객체
+        //두번째 객체에 담긴 값 뽑기
         let [ , a] = list;
         console.log(a);
         
@@ -34,11 +34,9 @@
         let [ , {info : [x, y] }] = list;
         console.log(x, y);
         
-        //두번째객체 profile안에 있는 birth, img를 한번에 뽑으려면?
+        //두번째 객체 profile안에 있는 birth, img를 한번에 뽑으려면?
         let [, {profile : {birth, img} }] = list;
         console.log(birth, img);
-        
-
     </script>
 
 </body>
